@@ -22,12 +22,12 @@
                                     ?>
                                     <form action="" method="post">
                                         <div class="form-inline">
-                                            <input type="text"  class="form-control mr-2" name="title">
-                                            <button class="btn btn-primary " name="category_btn">Add Category</button>
+                                            <input type="text"  class="form-control mr-2 mb-2" name="title">
+                                            <button class="btn btn-primary mb-2 " name="category_btn">Add Category</button>
                                         </div>
                                     </form>
                                     <br>
-                                    <table id="list" class="table  table-striped table-hover table-bordered text-center"  style="width:100%">
+                                    <table id="list" class="table  table-striped table-hover table-bordered table-responsive-md"  style="width:100%">
                                         <thead>
                                             <tr>
                                                 <th>#</th>
@@ -50,7 +50,7 @@
                                                 <td><?php echo $c["title"] ?></td>
                                                 <td><?php echo user($c['user_id'])['name'] ?></td>
                                                 <td><?php echo $time    ?></td>
-                                                <td>
+                                                <td class="text-nowrap">
                                                 <a href='category-del.php?id=<?php echo $c["id"]?>' class="btn btn-sm btn-outline-danger "><i class="feather-trash-2 "></i></a>
                                                 <a href='category-update.php?id=<?php echo $c["id"]?>' class="btn btn-sm btn-outline-warning"><i class="feather-edit"></i></a>
                                                 <?php  if($c['ordering'] !=1) { ?>

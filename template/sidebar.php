@@ -31,6 +31,22 @@
                                 </span>
                             </a>
                         </li>
+                        <li class="menu-item">
+                            <a href="<?php echo $url; ?>/ads-list.php" class="menu-item-link">
+                                <span>
+                                <i class="feather-activity"></i> 
+                                    Ads List
+                                </span>
+                            </a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="<?php echo $url; ?>/wallet.php" class="menu-item-link">
+                                <span>
+                                <i class="feather-dollar-sign"></i> 
+                                    Payment
+                                </span>
+                            </a>
+                        </li>
                         <li class="menu-spacer"></li>
 
                         <li class="menu-title">
@@ -55,14 +71,7 @@
                                 <span class=" badge badge-pill bg-black shadow-sm  p-1"><?php echo countTotal('post'); ?> </span>
                             </a>
                         </li>
-                        <li class="menu-item">
-                            <a href="<?php echo $url; ?>/ads-list.php" class="menu-item-link">
-                                <span>
-                                <i class="feather-activity"></i> 
-                                    Ads List
-                                </span>
-                            </a>
-                        </li>
+                        
                         
                         <?php if($_SESSION["users"]['role'] < 2){ ?>
                         

@@ -19,6 +19,20 @@
         return $text;
     }
 
+    function countTotal($table){
+        $sql ="SELECT COUNT(id) FROM $table WHERE 1";
+        $total = fetch($sql);
+        return $total['COUNT(id)'];
+    }
+
+    function redirect($l){
+        header("location:$l");
+    }
+
+    function linkTo($l){
+        echo "<script>location.href='$l'</script>";
+    }
+
     function runQuery($sql){
         $con = con();
         if(mysqli_query($con,$sql)){
@@ -167,11 +181,6 @@
         return fetch($sql);
     }
 
-    function countTotal($table){
-        $sql ="SELECT COUNT(id) FROM $table WHERE 1";
-        $total = fetch($sql);
-        return $total['COUNT(id)'];
-    }
     
     function postUpdate(){
         $description = $_POST['description'];     
@@ -256,6 +265,45 @@
         return runQuery($sql);
     }
    //ads show//
+
+   //wallet start/
+    function wallet(){
+        $from = $_SESSION['users']['id'];
+        $to = $_POST['to_user'];
+        $amount = $_POST['amount'];
+        $description = $_POST['description'];
+
+        $fromUserDetail = user($from);
+        $leftMoney = $fromUserDetail['money'] - $amount;
+        if($fromUserDetail['money'] >= $amount){
+            $sql = "UPDATE users SET money=$leftMoney WHERE id=$from ";
+            mysqli_query(con(),$sql);
+
+            $toUserDetail = user($to);
+            $newAmount = $toUserDetail['money'] + $amount;
+            $sql = "UPDATE users SET money=$newAmount WHERE id=$to";
+            mysqli_query(con(),$sql);
+
+            $sql = "INSERT INTO transition (from_user,to_user,amount,description) VALUE ('$from','$to','$amount','$description')";
+            return runQuery($sql);
+        }
+    }
+    function transitions(){
+        $userID = $_SESSION['users']['id'];
+        if($_SESSION['users']['role'] == 0 ){
+            $sql ="SELECT * FROM transition";
+        }else{
+            $sql ="SELECT * FROM transition WHERE  from_user=$userID OR to_user=$userID";
+        }
+        return fetchAll($sql);
+       
+    }
+
+    function transition($id){
+        $sql = "SELECT * FROM transition WHERE id=$id";
+        return fetch($sql);
+    }
+   //wallet end//
     
 
 

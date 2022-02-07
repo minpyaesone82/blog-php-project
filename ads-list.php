@@ -60,7 +60,7 @@
                 </div>
                 <hr>
                 
-                <table id="list" class="table  table-striped table-hover table-bordered"  style="width:100%">
+                <table id="list" class="table  table-striped table-hover table-bordered table-responsive-lg table-responsive-md"  style="width:100%">
                     <thead>
                         <tr>
                             <th>#</th>
@@ -105,8 +105,8 @@
 <?php include "template/footer.php"?>
 <script src="<?php echo $url; ?>/assets/vendor/data_table/jquery.dataTables.min.js"></script>
 <script src="<?php echo $url; ?>/assets/vendor/data_table/dataTables.bootstrap4.min.js"></script>
-<script>
+<!-- <script>
     $('#list').DataTable({
         order:[[0,"desc"]]
     });
-</script>
+</script> -->

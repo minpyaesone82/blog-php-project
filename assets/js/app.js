@@ -7,16 +7,10 @@ $(".hide-sidebar-btn").click(function () {
     $(".sidebar").animate({marginLeft:"-100%"});
 });
 
-function go()
-{
-
-    window.location = 'item-list.html'
-
+function go(url) {
+    setTimeout(function () {
+        location.href = `${url}`;
+    },500);
 }
-function home()
-{
 
-    window.location = 'index.html'
-
-}
 

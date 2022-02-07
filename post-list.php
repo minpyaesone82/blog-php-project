@@ -15,7 +15,7 @@
                                     </div>
                                    <hr>
                                    
-                                    <table id="list" class="table  table-striped table-hover table-bordered"  style="width:100%">
+                                    <table id="list" class="table  table-striped table-hover table-bordered table-responsive-md table-responsive-lg"  style="width:100%">
                                         <thead>
                                             <tr>
                                                 <th>#</th>
